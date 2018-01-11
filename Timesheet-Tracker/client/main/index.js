@@ -6,6 +6,6 @@ angular.module('appMain',['appMainCtrl'])
 
         .state('app.home', {
             url: "/home",
-            templateUrl: "modules/main/template/main.html"
+            templateUrl: "main/template/main.html"
         })
 });
