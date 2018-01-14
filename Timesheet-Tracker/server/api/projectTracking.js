@@ -12,9 +12,9 @@ function getprojectTrackingDataAll(req,res){
  app.default.models.ProjectTracking.find({}).exec(function(err,data){
  	if(!err){
  		console.log("data",JSON.stringify(data));
- 		return data;
+ 		cb.send(data);
  	}else{
- 		return err;
+ 		cb.send(false);
  	}	
  })
 }

@@ -9,13 +9,13 @@ function leaveDataInsertApi(req,res) {
 }
 
 
-function getLeaveDataAll(req,res){
+function getLeaveDataAll(req,cb){
  app.default.models.Leaves.find({}).exec(function(err,data){
  	if(!err){
  		console.log("data",JSON.stringify(data));
- 		return data;
+ 		cb.send(data);
  	}else{
- 		return err;
+ 		cb.send(false);
  	}	
  })
 }

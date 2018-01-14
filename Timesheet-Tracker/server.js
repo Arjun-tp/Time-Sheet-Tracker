@@ -1,23 +1,28 @@
-var request = require("express");
-var express = request();
+var req = require("express");
+var express = req();
 var mongoose = require('mongoose');
-var router = request.Router();
+var router = req.Router();
 var requireDir = require('require-dir');
 var config    = require('./config/development');
 var db = config.db;
 var models = requireDir('./server/models')
 var routes = require('./routes');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 express.use(bodyParser());
 express.use(bodyParser.json());
 express.use(bodyParser.urlencoded({extended: false}));
-
+express.use(req.static(path.join(__dirname,'client')))
 var app = {
     config: config,
-    mongoose : mongoose,
     models : models
 };
+
+express.get('/',function(req,res){
+    res.sendfile(__dirname+'/client/index.html');
+    // res.render('index',{title : 'Computer Not Working'});
+})
 
 console.log(config);
 

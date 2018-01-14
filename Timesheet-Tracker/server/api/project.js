@@ -12,9 +12,9 @@ function getprojectDataAll(req,res){
  app.default.models.Project.find({}).exec(function(err,data){
  	if(!err){
  		console.log("data",JSON.stringify(data));
- 		return data;
+ 		cb.send(data);
  	}else{
- 		return err;
+ 		cb.send(false);
  	}	
  })
 }
