@@ -1,0 +1,33 @@
+<h4>Please Click</h4>
+<hr/>
+<button class="btn btn-xs btn-success" ng-click="leaveFunction()" data-toggle="modal" data-target="#projectTrackingPopup">Project Tracking</button>	
+<div id="projectTrackingPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width: 50%">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <h4 align="center"><b>Project Tracking</b> </h4>
+                    <div ng-repeat="projectTracking in projectTrackingData">
+                        <table class="table table-bordered table-condensed table-striped">
+                        <tr>
+                            <th style="width:25%;text-align: center;">Project Tracking Name</th>
+                        </tr>
+                        <tr>
+                            <td align="center" style="vertical-align: middle">{{projectTracking.projectTrackingName}}</td>
+                        </tr>	
+                    </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div>
+                        <button type="button" class="btn pull-right btn-danger" data-dismiss="modal">OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+

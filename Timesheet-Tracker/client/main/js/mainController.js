@@ -1,10 +1,12 @@
+'use strict';
+
 
 angular.module('appMainCtrl',[])
-    .controller('HelloWordCtrl',function ($scope,Restangular) {
-        $scope.msg ='';
-        $scope.msg = 'Welcome to timesheetTracker.in!!';
-        console.log('welcome to timeSheetTracker.in')
-        Restangular.all('getLeaveDataAll').get().then(function(data){
-        	$scope.abc = data;
-        })
+    .controller('HelloWordCtrl',function ($scope,$http) {
+		$scope.empFunction = function(){
+		$http.get("/api/getEmployeeDataAll").then(function(result) {
+   			$scope.empdata = result.data;
+		})
+	}
 })
+    	

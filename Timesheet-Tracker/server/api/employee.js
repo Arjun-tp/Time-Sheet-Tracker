@@ -18,7 +18,7 @@ function employeeDataInsert(req,res) {
 }
 
 
-function getEmployeeDataAll(req){
+function getEmployeeDataAll(req,cb){
  app.default.models.Employee.find({}).exec(function(err,data){
  	if(!err){
  		console.log("data",JSON.stringify(data));
